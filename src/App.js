@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Navigate, Routes } from "react-router-dom";
 import "./App.css";
 // the below components will be created shortly
 import Login from "./components/Login";
@@ -10,11 +10,11 @@ class App extends Component {
   }
 render() {
     return (
-      <Switch>
-        <Redirect exact from="/" to="/login" />
+      <Routes>
+           <Route path="/" element={<Navigate to="login" />} />
         <Route path="/login" component={Login} />
         <Route path="/chat" component={Groupchat} />
-      </Switch>
+      </Routes>
     );
   }
 }
